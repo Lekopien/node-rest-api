@@ -75,3 +75,7 @@ site/            project page served at api.lekopien.com
 ## License
 
 MIT
+
+## Author
+
+Built by **David Lekopien** ([@Lekopien](https://github.com/Lekopien)) · [lekopien.com](https://lekopien.com)
