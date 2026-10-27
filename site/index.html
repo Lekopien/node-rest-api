@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Node REST API · Lekopien</title>
+  <meta name="description" content="Express 5 API for managing client projects, with validation, consistent errors, pagination, rate limiting, API keys, persistence, Docker and an integration test suite.">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="https://lekopien.com">lekopien<span>.</span>api</a>
+  <nav><a href="#features">Features</a><a href="#code">Code</a><a href="https://github.com/Lekopien/node-rest-api">GitHub</a></nav>
+</div></header>
+<main class="wrap">
+  <div class="hero">
+    <span class="tag">Backend · REST</span>
+    <h1>A REST API built like production</h1>
+    <p class="lead">Express 5 API for managing client projects, with validation, consistent errors, pagination, rate limiting, API keys, persistence, Docker and an integration test suite.</p>
+    <div class="btns"><a class="btn" href="https://github.com/Lekopien/node-rest-api">View source</a><a class="btn ghost" href="#code">Run it locally</a></div>
+  </div>
+  <section id="features"><h2>Highlights</h2><div class="grid"><div class="card"><h3>Validation</h3><p>Per-field error messages and a strict schema; unknown fields are rejected.</p></div><div class="card"><h3>Query power</h3><p>Filter by status or tag, full-text search, sort by any field, paginate with metadata.</p></div><div class="card"><h3>Security</h3><p>Fixed-window rate limiter with RateLimit headers and optional Bearer API key for writes.</p></div><div class="card"><h3>Observability</h3><p>Request IDs on every response, timing logs, and JSON 404s and 500s.</p></div><div class="card"><h3>Persistence</h3><p>In-memory store with atomic temp-file-and-rename writes to JSON.</p></div><div class="card"><h3>Tested</h3><p>11 integration tests with node:test and supertest, run in CI on Node 20 and 22.</p></div></div></section>
+  
+  <section id="code"><h2>Run it</h2><h3>Start</h3><pre><code>git clone https://github.com/Lekopien/node-rest-api
+cd node-rest-api
+npm install
+npm start   # http://localhost:3000</code></pre><h3>Create and query</h3><pre><code>curl -X POST localhost:3000/api/projects \
+  -H &#x27;content-type: application/json&#x27; \
+  -d &#x27;{&quot;name&quot;:&quot;Bakery website&quot;,&quot;client&quot;:&quot;Mama Bakery&quot;,&quot;budget&quot;:450}&#x27;
+
+curl &#x27;localhost:3000/api/projects?status=planned&amp;sort=-budget&amp;limit=5&#x27;</code></pre><h3>Response</h3><pre><code>{
+  &quot;data&quot;: [{ &quot;id&quot;: &quot;6f1c…&quot;, &quot;name&quot;: &quot;Bakery website&quot;, &quot;status&quot;: &quot;planned&quot;, &quot;budget&quot;: 450 }],
+  &quot;meta&quot;: { &quot;total&quot;: 1, &quot;page&quot;: 1, &quot;limit&quot;: 5, &quot;pages&quot;: 1 }
+}</code></pre></section>
+  <section><h2>Stack</h2><div class="chips"><span class="chip">Node.js 22</span><span class="chip">Express 5</span><span class="chip">node:test</span><span class="chip">supertest</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span></div></section>
+</main>
+<footer><div class="wrap">Built by <a href="https://lekopien.com">Lekopien</a>. Part of the Lekopien project portfolio. <a href="https://github.com/Lekopien/node-rest-api">Source on GitHub</a>.</div></footer>
+
+</body>
+</html>

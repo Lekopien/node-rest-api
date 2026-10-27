@@ -1,0 +1,14 @@
+### Health
+GET http://localhost:3000/health
+
+### Create
+POST http://localhost:3000/api/projects
+Content-Type: application/json
+
+{ "name": "Bakery website", "client": "Mama's Bakery", "budget": 450, "tags": ["web", "seo"] }
+
+### List active projects, cheapest first
+GET http://localhost:3000/api/projects?status=active&sort=budget&limit=5
+
+### Stats
+GET http://localhost:3000/api/stats
